@@ -1,6 +1,8 @@
 # ElectronIsolation
 Codes for electron isolation measurement
 
+v03: Remove some duplicated files.
+
 v02: Delete pdf and root files.
 
 v01: First commit
