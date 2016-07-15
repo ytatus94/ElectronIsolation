@@ -518,7 +518,7 @@ void make_ratio_plot(TString xtitle, TString ytitle, TString canvas_name, TStrin
     leg_top->Draw();
 
     ATLASLabel(0.2, 0.85,"Internal");
-    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 3.2 fb^{-1}");
+    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 6.9 fb^{-1}");
     myText(0.2, 0.70, kBlack, const_cast<char *>(range.Data()));
 
     //
@@ -678,7 +678,7 @@ void make_compare_plot(TString xtitle, TString ytitle, TString canvas_name, TStr
     leg->Draw();
     
     ATLASLabel(0.2, 0.85,"Internal");
-    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 3.2 fb^{-1}");
+    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 6.9 fb^{-1}");
     myText(0.2, 0.70, kBlack, const_cast<char *>(range.Data()));
 
     if (xtitle.Contains("eta")) { // projection on eta axis
@@ -706,8 +706,6 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     bool debug = false;
 
     TString pad1_X_title = xtitle;
-    //float pad1_X_max = hData->GetXaxis()->GetXmax();
-    //float pad1_X_min = hData->GetXaxis()->GetXmin();
     float pad1_X_max = 0;
     float pad1_X_min = 0;
     if (xtitle.Contains("eta")) { // projection on eta axis
@@ -724,7 +722,7 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     TString pad2_X_title = xtitle;
     float pad2_X_max = pad1_X_max;
     float pad2_X_min = pad1_X_min;
-    TString pad2_Y_title = "reprocessed / Moriond";
+    TString pad2_Y_title = "DS1.3 / pre-recom";
     double pad2_Y_max = 1.10;
     double pad2_Y_min = 0.91;
     if (debug) {
@@ -756,8 +754,31 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     // Calculate the ratio between hOld and hNew
     hOld->Sumw2();
     hNew->Sumw2();
-    TH1F *ratio = (TH1F *)hNew->Clone();
-    ratio->Divide(hOld);
+    //TH1F *ratio = (TH1F *)hNew->Clone();
+    //ratio->Divide(hOld);
+    // Philip modify the histograms in the recommendation, so the number of bins in my histograms are different from recommendation.
+    TH1F *ratio;
+	if (xtitle.Contains("eta")) { // projection on eta axis
+    	ratio = (TH1F *)hNew->Clone();
+    	ratio->Divide(hOld);
+    }
+	else { // projection on pt axis
+		// because hOld and hNew have different number of bins
+		// the Divide() doesn't work. I need to calculate by myself.
+		ratio = (TH1F *)hOld->Clone();
+		ratio->Reset();
+    	for (int i = 1; i <= ratio->GetNbinsX(); i++) {
+			double new_central = hNew->GetBinContent(i + 1); // The first bin is 4 to 7 GeV, we need to start from second bin 7 to 10 GeV.
+			double new_error   = hNew->GetBinError(i + 1);
+			double old_central = hOld->GetBinContent(i); // The first bin in recommendation is 7 to 10 GeV.
+			double old_error   = hOld->GetBinError(i);
+			double ratio_central = new_central / old_central;
+			// Error propagation: Dz/Z = sqrt( (Dx/X)^2 + (Dy/Y)^2 )
+			double ratio_error = ratio_central * sqrt(pow(new_error / new_central, 2) + pow(old_error / old_central, 2));
+			ratio->SetBinContent(i, ratio_central);
+			ratio->SetBinError(i, ratio_error);
+		}
+	}
     FindOptimalRange(high, low, ratio);
     if (debug)
         cout << "(low, high)=(" << low << ", " << high << ")" << endl;
@@ -843,7 +864,7 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     leg_top->Draw();
 
     ATLASLabel(0.2, 0.85,"Internal");
-    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 3.2 fb^{-1}");
+    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 6.9 fb^{-1}");
     myText(0.2, 0.70, kBlack, const_cast<char *>(range.Data()));
 
     //

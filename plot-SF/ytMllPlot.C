@@ -27,16 +27,16 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
 
     TString folder_name;
     if (iso.Contains("isolPhFixedCut"))
-        folder_name = menu + "MC15_v8_" + iso;
+        folder_name = menu + "_Smooth_v11_" + iso;
     else
-        folder_name = menu + "_d0z0_v8_" + iso;
+        folder_name = menu + "_d0z0_Smooth_v11_" + iso;
     if (debug) cout << folder_name << endl;
 
     TFile *data_file = TFile::Open("../merged-hist-data.root");
     TFile *mc_file   = TFile::Open("../merged-hist-mc.root");
 
     TString bkg_template[2] = {"TemplRun2Variation1AndPassTrackQuality", "TemplRun2Variation2AndPassTrackQuality"};
-    TString tag[3] = {"TagTightLLHMC15_v8", "TagTightLLHMC15_v8_Iso", "TagMediumLLHMC15_v8_Iso"};
+    TString tag[3] = {"TagTightLLH_v11", "TagTightLLH_v11_Iso", "TagMediumLLH_v11_Iso"};
 
     int N_bkg_template = sizeof(bkg_template) / sizeof(bkg_template[0]);
     int N_tag = sizeof(tag) / sizeof(tag[0]);

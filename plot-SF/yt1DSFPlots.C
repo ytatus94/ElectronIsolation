@@ -29,9 +29,9 @@ void yt1DSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
 
     TString folder_name;
     if (iso.Contains("isolPhFixedCut"))
-        folder_name = menu + "MC15_v8_" + iso;
+        folder_name = menu + "_Smooth_v11_" + iso;
     else
-        folder_name = menu + "_d0z0_v8_" + iso;
+        folder_name = menu + "_d0z0_Smooth_v11_" + iso;
     if (debug) cout << folder_name << endl;
 
     TFile *file = TFile::Open("../output/ScaleFactors.root");
