@@ -126,7 +126,7 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
                         static_cast<int>(data_den_hist->GetXaxis()->GetBinLowEdge(pt) / 1000.),
                         static_cast<int>(data_den_hist->GetXaxis()->GetBinUpEdge(pt) / 1000.));
                 myText(0.45, 0.85, kBlack, name);
-                myText(0.45, 0.79,  kBlack, const_cast<char *>(folder_name.Data()) );
+                myText(0.45, 0.79, kBlack, const_cast<char *>(folder_name.Data()) );
                 myText(0.45, 0.73, kBlack, const_cast<char *>(tag[j].Data()) );
                 myText(0.20, 0.85, kBlack, "Data");
                 // Dump some integrals 80<mll<100
@@ -183,7 +183,7 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
                         static_cast<int>(data_den_hist->GetXaxis()->GetBinLowEdge(pt) / 1000.),
                         static_cast<int>(data_den_hist->GetXaxis()->GetBinUpEdge(pt) / 1000.));
                 myText(0.45, 0.85, kBlack, name);
-                myText(0.45, 0.79,  kBlack, const_cast<char *>(folder_name.Data()) );
+                myText(0.45, 0.79, kBlack, const_cast<char *>(folder_name.Data()) );
                 myText(0.45, 0.73, kBlack, const_cast<char *>(tag[j].Data()) );
                 myText(0.20, 0.85, kBlack, "Data");
                 // Dump some integrals 80<mll<100
@@ -240,7 +240,7 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
                         static_cast<int>(data_den_hist->GetXaxis()->GetBinLowEdge(pt) / 1000.),
                         static_cast<int>(data_den_hist->GetXaxis()->GetBinUpEdge(pt) / 1000.));
                 myText(0.45, 0.85, kBlack, name);
-                myText(0.45, 0.79,  kBlack, const_cast<char *>(folder_name.Data()) );
+                myText(0.45, 0.79, kBlack, const_cast<char *>(folder_name.Data()) );
                 myText(0.45, 0.73, kBlack, const_cast<char *>(tag[j].Data()) );
                 myText(0.20, 0.85, kBlack, "Data");
                 // Dump some integrals 80<mll<100
@@ -300,7 +300,7 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
                         static_cast<int>(mc_den_hist->GetXaxis()->GetBinLowEdge(pt) / 1000.),
                         static_cast<int>(mc_den_hist->GetXaxis()->GetBinUpEdge(pt) / 1000.));
                 myText(0.45, 0.85, kBlack, name);
-                myText(0.45, 0.79,  kBlack, const_cast<char *>(folder_name.Data()) );
+                myText(0.45, 0.79, kBlack, const_cast<char *>(folder_name.Data()) );
                 myText(0.45, 0.73, kBlack, const_cast<char *>(tag[j].Data()) );
                 myText(0.20, 0.85, kBlack, "Z#rightarrow ee MC");
                 // Dump some integrals 80<mll<100
@@ -357,7 +357,7 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
                         static_cast<int>(mc_den_hist->GetXaxis()->GetBinLowEdge(pt) / 1000.),
                         static_cast<int>(mc_den_hist->GetXaxis()->GetBinUpEdge(pt) / 1000.));
                 myText(0.45, 0.85, kBlack, name);
-                myText(0.45, 0.79,  kBlack, const_cast<char *>(folder_name.Data()) );
+                myText(0.45, 0.79, kBlack, const_cast<char *>(folder_name.Data()) );
                 myText(0.45, 0.73, kBlack, const_cast<char *>(tag[j].Data()) );
                 myText(0.20, 0.85, kBlack, "Z#rightarrow ee MC");
                 // Dump some integrals 80<mll<100
@@ -414,7 +414,7 @@ void ytMllPlot(TString menu = "TightLLH", TString iso  = "isolTight")
                         static_cast<int>(mc_den_hist->GetXaxis()->GetBinLowEdge(pt) / 1000.),
                         static_cast<int>(mc_den_hist->GetXaxis()->GetBinUpEdge(pt) / 1000.));
                 myText(0.45, 0.85, kBlack, name);
-                myText(0.45, 0.79,  kBlack, const_cast<char *>(folder_name.Data()) );
+                myText(0.45, 0.79, kBlack, const_cast<char *>(folder_name.Data()) );
                 myText(0.45, 0.73, kBlack, const_cast<char *>(tag[j].Data()) );
                 myText(0.20, 0.85, kBlack, "Z#rightarrow ee MC");
                 // Dump some integrals 80<mll<100

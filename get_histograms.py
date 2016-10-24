@@ -5,7 +5,7 @@ import ROOT
 def get_histogram(fileName, menu, iso, histName):
   ''' return the 2-dim EffData, EffMC, or SF histogram. '''
 
-  #~ file = ROOT.TFile(fileName)
+  #file = ROOT.TFile(fileName)
   folder = menu
   if "isolPhFixed" not in iso:
     folder += "_d0z0_v8_" + iso
