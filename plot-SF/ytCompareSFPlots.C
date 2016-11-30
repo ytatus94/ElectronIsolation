@@ -65,8 +65,10 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
     TH2F *tool_sf_stat = (TH2F *)tool_file->Get("0_9999999/FullSim_stat");
 */
 	// Kristin Lohwasser move all the root files inside /data/ to CalibArea
-	TString file_path = "/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/ElectronEfficiencyCorrection/2015_2016/rel20.7/ICHEP_June2016_v1/isolation/";
-	TFile *tool_file = TFile::Open(file_path + "efficiencySF.Isolation." + menu + "_d0z0_v11_" + iso + ".2015_2016.13TeV.rel20.7.25ns.v01.root");
+	//TString file_path = "/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/ElectronEfficiencyCorrection/2015_2016/rel20.7/ICHEP_June2016_v1/isolation/";
+	//TFile *tool_file = TFile::Open(file_path + "efficiencySF.Isolation." + menu + "_d0z0_v11_" + iso + ".2015_2016.13TeV.rel20.7.25ns.v01.root");
+    TString file_path = "/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/ElectronEfficiencyCorrection/2015_2016/rel20.7/ICHEP_June2016_v2/isolation/";
+    TFile *tool_file = TFile::Open(file_path + "efficiencySF.Isolation." + menu + "_d0z0_v11_" + iso + ".root");
 
 	// 2015 recommendation uses 266904_284484
 	// 2016 pre-recommendation uses 296939_9999999
@@ -123,7 +125,7 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
 //        make_compare_plot("#eta", "Scale Factor", folder_name, TString(pt_range), pt_bin_low, pt_bin_up,
 //                          "Moriond recommendation", "reprocessed 2015 data", recommendation, central_value);
         make_compare_ratio_plot("#eta", "Scale Factor", folder_name, TString(pt_range), pt_bin_low, pt_bin_up,
-                                "pre-recommendation", "2016 DS1.3", recommendation, central_value);
+                                "2015 full DS (3.2 fb^{-1})", "2016 full DS (33.925 fb^{-1})", recommendation, central_value);
     }
 
     //
@@ -168,6 +170,6 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
 //        make_compare_plot("E_{T} [MeV]", "Scale Factor", folder_name, TString(eta_range), eta_bin_low, eta_bin_up,
 //                          "Moriond recommendation", "reprocessed 2015 data", recommendation, central_value);
         make_compare_ratio_plot("E_{T} [MeV]", "Scale Factor", folder_name, TString(eta_range), eta_bin_low, eta_bin_up,
-                                "pre-recommendation", "2016 DS1.3", recommendation, central_value);
+                                "2015 full DS (3.2 fb^{-1})", "2016 full DS (33.925 fb^{-1})", recommendation, central_value);
     }
 }

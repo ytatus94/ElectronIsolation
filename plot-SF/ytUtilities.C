@@ -486,6 +486,11 @@ void make_ratio_plot(TString xtitle, TString ytitle, TString canvas_name, TStrin
     }
     hData->SetMaximum(pad1_Y_max);
     hData->SetMinimum(pad1_Y_min);
+    hData->GetXaxis()->SetLabelSize(0); // Remove the x lable in the top pad
+    hData->GetYaxis()->SetTitleSize(0.07);
+    hData->GetYaxis()->SetTitleOffset(0.60);
+    hData->GetYaxis()->SetLabelSize(0.04);
+    hData->GetYaxis()->SetLabelOffset(0.005);
     // Data with total uncertianty as color band
     hData->SetLineColor(kBlue);
     hData->SetLineWidth(1);
@@ -518,7 +523,7 @@ void make_ratio_plot(TString xtitle, TString ytitle, TString canvas_name, TStrin
     leg_top->Draw();
 
     ATLASLabel(0.2, 0.85,"Internal");
-    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 6.9 fb^{-1}");
+    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 33.925 fb^{-1}");
     myText(0.2, 0.70, kBlack, const_cast<char *>(range.Data()));
 
     //
@@ -531,17 +536,17 @@ void make_ratio_plot(TString xtitle, TString ytitle, TString canvas_name, TStrin
     frame->GetYaxis()->SetNdivisions(405);
     frame->SetLineWidth(1);
     frame->SetXTitle(pad2_X_title);
-    frame->GetXaxis()->SetTitleSize(20);
+    frame->GetXaxis()->SetTitleSize(30);
     frame->GetXaxis()->SetTitleFont(47);
     frame->GetXaxis()->SetTitleOffset(3.0);
     frame->GetXaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-    frame->GetXaxis()->SetLabelSize(16);
+    frame->GetXaxis()->SetLabelSize(20);
     frame->SetYTitle(pad2_Y_title);
-    frame->GetYaxis()->SetTitleSize(17);
+    frame->GetYaxis()->SetTitleSize(30);
     frame->GetYaxis()->SetTitleFont(43);
-    frame->GetYaxis()->SetTitleOffset(2.0);
+    frame->GetYaxis()->SetTitleOffset(1.1);
     frame->GetYaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-    frame->GetYaxis()->SetLabelSize(16);
+    frame->GetYaxis()->SetLabelSize(20);
     frame->Draw();
     // SF with total uncertianty as color band
     hSF->SetLineColor(kOrange-3);
@@ -678,7 +683,7 @@ void make_compare_plot(TString xtitle, TString ytitle, TString canvas_name, TStr
     leg->Draw();
     
     ATLASLabel(0.2, 0.85,"Internal");
-    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 6.9 fb^{-1}");
+    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 33.925 fb^{-1}");
     myText(0.2, 0.70, kBlack, const_cast<char *>(range.Data()));
 
     if (xtitle.Contains("eta")) { // projection on eta axis
@@ -722,7 +727,7 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     TString pad2_X_title = xtitle;
     float pad2_X_max = pad1_X_max;
     float pad2_X_min = pad1_X_min;
-    TString pad2_Y_title = "DS1.3 / pre-recom";
+    TString pad2_Y_title = "2016 / 2015";
     double pad2_Y_max = 1.10;
     double pad2_Y_min = 0.91;
     if (debug) {
@@ -832,6 +837,11 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     }
     hOld->SetMaximum(pad1_Y_max);
     hOld->SetMinimum(pad1_Y_min);
+    hOld->GetXaxis()->SetLabelSize(0); // Remove the x lable in the top pad
+    hOld->GetYaxis()->SetTitleSize(0.08);
+    hOld->GetYaxis()->SetTitleOffset(0.6);
+    hOld->GetYaxis()->SetLabelSize(0.04);
+    hOld->GetYaxis()->SetLabelOffset(0.005);
     // Old histogram
     hOld->SetLineColor(kBlue);
     hOld->SetLineWidth(1);
@@ -864,7 +874,7 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     leg_top->Draw();
 
     ATLASLabel(0.2, 0.85,"Internal");
-    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 6.9 fb^{-1}");
+    myText(0.2, 0.77, kBlack, "#sqrt{s} = 13 TeV, 33.925 fb^{-1}");
     myText(0.2, 0.70, kBlack, const_cast<char *>(range.Data()));
 
     //
@@ -877,17 +887,17 @@ void make_compare_ratio_plot(TString xtitle, TString ytitle, TString canvas_name
     frame->GetYaxis()->SetNdivisions(405);
     frame->SetLineWidth(1);
     frame->SetXTitle(pad2_X_title);
-    frame->GetXaxis()->SetTitleSize(20);
+    frame->GetXaxis()->SetTitleSize(30);
     frame->GetXaxis()->SetTitleFont(47);
     frame->GetXaxis()->SetTitleOffset(3.0);
     frame->GetXaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-    frame->GetXaxis()->SetLabelSize(16);
+    frame->GetXaxis()->SetLabelSize(20);
     frame->SetYTitle(pad2_Y_title);
-    frame->GetYaxis()->SetTitleSize(17);
+    frame->GetYaxis()->SetTitleSize(35);
     frame->GetYaxis()->SetTitleFont(43);
-    frame->GetYaxis()->SetTitleOffset(2.0);
+    frame->GetYaxis()->SetTitleOffset(1.1);
     frame->GetYaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-    frame->GetYaxis()->SetLabelSize(16);
+    frame->GetYaxis()->SetLabelSize(20);
     frame->Draw();
 
     ratio->SetLineColor(kBlack);
