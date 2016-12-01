@@ -50,12 +50,12 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
         cout << sf_total_error << endl;
     }
 /*
-	TString rootcore_path = TString(std::getenv("ROOTCOREBIN"));
-	TString tool_path = rootcore_path + "/include/ElectronEfficiencyCorrection/../data/";
-	if (debug) {
-		cout << "ROOTCOREBINE=" << rootcore_path << endl;
-		cout << tool_path << endl;
-	}
+    TString rootcore_path = TString(std::getenv("ROOTCOREBIN"));
+    TString tool_path = rootcore_path + "/include/ElectronEfficiencyCorrection/../data/";
+    if (debug) {
+        cout << "ROOTCOREBINE=" << rootcore_path << endl;
+        cout << tool_path << endl;
+    }
     TFile *tool_file = TFile::Open(tool_path + "efficiencySF.Isolation." + menu + "_d0z0_v8_" + iso + ".2015.13TeV.rel20p0.25ns.v04.root");
     //TFile *tool_file = TFile::Open(tool_path + "efficiencySF.Isolation." + folder_name + ".2015.13TeV.rel20p0.25ns.v04.root");
     //TFile *tool_file = TFile::Open("/afs/cern.ch/user/y/yushen/moriond/efficiencySF.Isolation." + folder_name + ".2015.13TeV.rel20p0.25ns.v04.root");
@@ -64,14 +64,14 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
     TH2F *tool_sf_tot  = (TH2F *)tool_file->Get("0_9999999/FullSim_tot");
     TH2F *tool_sf_stat = (TH2F *)tool_file->Get("0_9999999/FullSim_stat");
 */
-	// Kristin Lohwasser move all the root files inside /data/ to CalibArea
-	//TString file_path = "/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/ElectronEfficiencyCorrection/2015_2016/rel20.7/ICHEP_June2016_v1/isolation/";
-	//TFile *tool_file = TFile::Open(file_path + "efficiencySF.Isolation." + menu + "_d0z0_v11_" + iso + ".2015_2016.13TeV.rel20.7.25ns.v01.root");
+    // Kristin Lohwasser move all the root files inside /data/ to CalibArea
+    //TString file_path = "/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/ElectronEfficiencyCorrection/2015_2016/rel20.7/ICHEP_June2016_v1/isolation/";
+    //TFile *tool_file = TFile::Open(file_path + "efficiencySF.Isolation." + menu + "_d0z0_v11_" + iso + ".2015_2016.13TeV.rel20.7.25ns.v01.root");
     TString file_path = "/cvmfs/atlas.cern.ch/repo/sw/database/GroupData/ElectronEfficiencyCorrection/2015_2016/rel20.7/ICHEP_June2016_v2/isolation/";
     TFile *tool_file = TFile::Open(file_path + "efficiencySF.Isolation." + menu + "_d0z0_v11_" + iso + ".root");
 
-	// 2015 recommendation uses 266904_284484
-	// 2016 pre-recommendation uses 296939_9999999
+    // 2015 recommendation uses 266904_284484
+    // 2016 pre-recommendation uses 296939_9999999
     TH2F *tool_sf      = (TH2F *)tool_file->Get("296939_9999999/FullSim_sf");
     TH2F *tool_sf_tot  = (TH2F *)tool_file->Get("296939_9999999/FullSim_tot");
     TH2F *tool_sf_stat = (TH2F *)tool_file->Get("296939_9999999/FullSim_stat");
@@ -120,7 +120,7 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
             cout << recommendation_stat << endl;
             cout << tool_sf->GetXaxis()->GetBinLowEdge(pt_bin - 1) << endl;
             cout << tool_sf->GetXaxis()->GetBinUpEdge(pt_bin - 1) << endl;
-			cout << "***" << endl;
+            cout << "***" << endl;
         }
 //        make_compare_plot("#eta", "Scale Factor", folder_name, TString(pt_range), pt_bin_low, pt_bin_up,
 //                          "Moriond recommendation", "reprocessed 2015 data", recommendation, central_value);
@@ -165,7 +165,7 @@ void ytCompareSFPlots(TString menu = "TightLLH", TString iso = "isolTight")
             cout << recommendation_stat << endl;
             cout << tool_sf->GetYaxis()->GetBinLowEdge(eta_bin) << endl;
             cout << tool_sf->GetYaxis()->GetBinUpEdge(eta_bin) << endl;
-			cout << "***" << endl;
+            cout << "***" << endl;
         }
 //        make_compare_plot("E_{T} [MeV]", "Scale Factor", folder_name, TString(eta_range), eta_bin_low, eta_bin_up,
 //                          "Moriond recommendation", "reprocessed 2015 data", recommendation, central_value);
